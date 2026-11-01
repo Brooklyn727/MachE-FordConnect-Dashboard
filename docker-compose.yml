@@ -1,0 +1,13 @@
+services:
+  mache-telemetry:
+    image: python:3.12-alpine
+    container_name: mache-telemetry
+    restart: unless-stopped
+    working_dir: /app
+    command: ["python", "/app/server.py"]
+    ports:
+      - "8765:8765"
+    volumes:
+      - /volume1/docker/mache-telemetry:/app
+    environment:
+      TZ: America/New_York

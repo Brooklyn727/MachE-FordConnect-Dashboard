@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mach-E | Telemetry</title>
+<link rel="stylesheet" href="/web/style.css">
+</head><body>
+<header class="top"><div class="brand"><div class="mark">M</div><div><strong>MACH-E <span>TELEMETRY</span></strong><small>LOCAL FORDCONNECT DASHBOARD</small></div></div><div class="right"><span class="online" id="connection">NOT CONNECTED</span><a class="logout" href="/logout">LOCK</a></div></header>
+<main>
+<div class="intro"><div><div class="eyebrow">VEHICLE INTELLIGENCE · MUSTANG MACH-E</div><h1>Electric, in detail<span>.</span></h1><p>Private, read-only FordConnect dashboard. Your data stays on your local server.</p></div><div class="updated">LAST SYNC <strong id="updated">—</strong></div></div>
+<div class="hero">
+  <section class="battery"><div class="panel-title">HIGH-VOLTAGE BATTERY <span>FORD TELEMETRY</span></div><div class="soc"><strong id="soc">—</strong><span>%</span></div><div class="progress"><i id="soc-bar"></i></div><div class="battery-footer"><span id="charge">Charging status unavailable</span><span id="vin">VIN · —</span></div><div class="fineprint" id="soc-age">Battery charge reading not yet reported</div></section>
+  <section class="metrics">
+    <div class="tile"><label>ESTIMATED RANGE</label><div id="range">—</div><small id="range-unit">From Ford API</small></div>
+    <div class="tile"><label>ODOMETER</label><div id="odo">—</div><small id="odo-unit">From Ford API</small></div>
+    <div class="tile"><label>BATTERY CAPACITY</label><div id="capacity">—</div><small id="capacity-unit">Only if Ford reports it</small></div>
+    <div class="tile"><label>BATTERY HEALTH</label><div id="health">—</div><small>Not inferred from capacity</small></div>
+  </section>
+</div>
+<div class="secondary">
+<section class="panel graph"><div class="panel-title">STATE OF CHARGE <span>HISTORY</span></div><canvas id="chart" width="900" height="230"></canvas><div class="graph-note">This chart records Ford snapshots; the car may report values less often than the dashboard syncs.</div></section>
+<section class="panel temperatures"><div class="panel-title">ENVIRONMENT & CHARGING</div><div class="kv"><span>Battery temperature</span><strong id="battery-temp">—</strong></div><div class="kv"><span>Outside temperature</span><strong id="outside-temp">—</strong></div><div class="kv"><span>Plug status</span><strong id="plug-status">—</strong></div><div class="kv"><span>Charge status</span><strong id="charge-status">—</strong></div></section>
+</div>
+<section class="panel additional" aria-label="Vehicle diagnostics">
+  <div class="section-heading"><div><div class="eyebrow">MORE FROM YOUR MACH-E</div><h2>Vehicle diagnostics</h2><p>Ford reports these sensors separately; each card includes the age of its last reading.</p></div><span class="panel-title">READ-ONLY TELEMETRY</span></div>
+  <div class="diagnostics-grid">
+    <section class="panel tire-panel">
+      <div class="panel-title">TIRE PRESSURE <span>PSI</span></div>
+      <div class="tire-layout">
+        <div class="tire-cell"><div class="tire-caption">FRONT LEFT</div><strong id="tire-fl">—</strong><small id="tire-fl-age">Not reported</small></div>
+        <div class="tire-cell"><div class="tire-caption">FRONT RIGHT</div><strong id="tire-fr">—</strong><small id="tire-fr-age">Not reported</small></div>
+        <div class="car-graphic" aria-hidden="true"><div class="car-body"><span>FRONT</span><div class="windshield"></div><div class="roof"></div><span>REAR</span></div></div>
+        <div class="tire-cell"><div class="tire-caption">REAR LEFT</div><strong id="tire-rl">—</strong><small id="tire-rl-age">Not reported</small></div>
+        <div class="tire-cell"><div class="tire-caption">REAR RIGHT</div><strong id="tire-rr">—</strong><small id="tire-rr-age">Not reported</small></div>
+      </div>
+      <div class="tire-foot"><span id="tire-placard">Placard pressure: —</span><span id="tire-timestamp">—</span></div>
+      <p class="fineprint">Ford TPMS readings may be delayed. Check the driver's door-jamb label and a cold-tire gauge before adjusting pressure.</p>
+    </section>
+    <section class="panel diagnostic-panel">
+      <div class="panel-title">VEHICLE STATUS <span>LAST REPORTED</span></div>
+      <div class="kv"><span>12V electrical system</span><div><strong id="battery-12v">—</strong><small id="battery-12v-age">—</small></div></div>
+      <div class="kv"><span>High-voltage battery status</span><div><strong id="battery-performance">—</strong><small id="battery-performance-age">—</small></div></div>
+      <div class="kv"><span>All-door lock</span><div><strong id="door-lock">—</strong><small id="door-lock-age">—</small></div></div>
+      <div class="kv"><span>Doors</span><div><strong id="doors">—</strong><small id="doors-age">—</small></div></div>
+      <div class="kv"><span>Frunk / hood</span><div><strong id="hood">—</strong><small id="hood-age">—</small></div></div>
+      <div class="kv"><span>Ignition</span><div><strong id="ignition">—</strong><small id="ignition-age">—</small></div></div>
+    </section>
+    <section class="panel diagnostic-panel">
+      <div class="panel-title">CHARGING DETAILS <span>LAST REPORTED</span></div>
+      <div class="kv"><span>Station type</span><div><strong id="charger-type">—</strong><small id="charger-type-age">—</small></div></div>
+      <div class="kv"><span>Charger DC output voltage</span><div><strong id="charger-voltage">—</strong><small id="charger-voltage-age">—</small></div></div>
+      <div class="kv"><span>Charger DC output current</span><div><strong id="charger-current">—</strong><small id="charger-current-age">—</small></div></div>
+      <p class="fineprint">These are values reported by the vehicle's onboard charger, not wall-side EVSE readings. They may describe a previous charge session.</p>
+    </section>
+  </div>
+</section>
+<section class="panel setup"><div class="panel-title">FORD API CONNECTION <span>AUTHORIZATION / DIAGNOSTICS</span></div>
+<div class="setup-grid"><div><p><b>1.</b> Register the exact callback URI below with your Ford Developer application. For the manual callback method, your browser may show a blank/error page after Ford consent. Copy its full address-bar URL.</p><div class="code">__REDIRECT__</div><p><b>2.</b> Click below to open Ford's official consent screen. Sign in with your <strong>regular Ford app</strong> account.</p><a class="primary" href="/start" target="_blank" rel="noreferrer">Start Ford authorization</a></div>
+<div><p><b>3.</b> After authorizing, paste the <em>full callback URL</em> into this private form. Never share that URL in chats; it contains a one-time authorization code.</p><form action="/manual" method="POST"><input name="csrf" type="hidden" value="__CSRF__"><textarea name="callback_url" placeholder="http://localhost:8080/callback?code=...&state=..." rows="3" required></textarea><button class="secondary-button" type="submit">Exchange code for token</button></form><p class="muted">The exact Ford error category (when supplied) will appear below. The authorization code and tokens won't be displayed.</p></div></div>
+<div class="diag" id="diag">Not connected. No Ford request has been made yet.</div>
+<div class="controls"><form action="/poll" method="POST"><input type="hidden" name="csrf" value="__CSRF__"><button class="secondary-button" type="submit">Fetch latest telemetry</button></form><a href="/api/raw" target="_blank" rel="noreferrer" class="raw-link">View raw data (private) ↗</a></div>
+</section>
+<footer>This is an independent local project, not affiliated with Ford. No data is fabricated. Ford's availability, authentication and reported metrics may vary by vehicle and region.</footer>
+</main><script src="/web/app.js"></script>
+</body></html>

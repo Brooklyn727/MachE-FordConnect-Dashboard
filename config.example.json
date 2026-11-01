@@ -1,0 +1,7 @@
+{
+  "client_id": "YOUR_FORD_DEVELOPER_CLIENT_ID",
+  "client_secret": "YOUR_NEW_FORD_DEVELOPER_SECRET",
+  "dashboard_password": "YOUR_OWN_LONG_RANDOM_DASHBOARD_PASSWORD",
+  "redirect_uri": "http://localhost:8080/callback",
+  "poll_seconds": 180
+}
