@@ -1,4 +1,4 @@
-# Mach-E GT console
+# Mach-E Console
 
 A private, read-only FordConnect Query dashboard for an existing Synology/Docker installation. Python standard library only; no cloud hosting, frontend build, new stack or runtime dependency added by v1.3.0.
 
