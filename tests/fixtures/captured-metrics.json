@@ -1,0 +1,316 @@
+{
+  "updateTime": "2026-11-06T05:07:25Z",
+  "metrics": {
+    "alarmStatus": {
+      "updateTime": "2026-11-06T03:00:37Z",
+      "value": "DISARMED"
+    },
+    "batteryLoadStatus": {
+      "updateTime": "2026-11-06T04:14:27Z",
+      "value": "NORMAL_OPERATION",
+      "vehicleBattery": "PRIMARY_BATTERY"
+    },
+    "batteryStateOfCharge": {
+      "updateTime": "2026-11-06T03:00:37Z",
+      "value": 86.0,
+      "vehicleBattery": "PRIMARY_BATTERY"
+    },
+    "batteryVoltage": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": 14.625,
+      "vehicleBattery": "PRIMARY_BATTERY"
+    },
+    "doorLockStatus": [
+      {
+        "determinationMethod": "INFERRED",
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "UNKNOWN",
+        "vehicleDoor": "UNSPECIFIED_REAR",
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "DRIVER"
+      },
+      {
+        "determinationMethod": "INFERRED",
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "LOCKED",
+        "vehicleDoor": "ALL_DOORS"
+      },
+      {
+        "determinationMethod": "INFERRED",
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "UNKNOWN",
+        "vehicleDoor": "INNER_TAILGATE",
+        "vehicleOccupantRole": "UNKNOWN",
+        "vehicleSide": "UNKNOWN"
+      },
+      {
+        "determinationMethod": "INFERRED",
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "UNKNOWN",
+        "vehicleDoor": "TAILGATE",
+        "vehicleOccupantRole": "UNKNOWN",
+        "vehicleSide": "UNKNOWN"
+      },
+      {
+        "determinationMethod": "INFERRED",
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "LOCKED",
+        "vehicleDoor": "UNSPECIFIED_FRONT",
+        "vehicleOccupantRole": "DRIVER",
+        "vehicleSide": "DRIVER"
+      },
+      {
+        "determinationMethod": "INFERRED",
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "UNKNOWN",
+        "vehicleDoor": "FRUNK",
+        "vehicleOccupantRole": "UNKNOWN",
+        "vehicleSide": "UNKNOWN"
+      }
+    ],
+    "doorStatus": [
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "CLOSED",
+        "vehicleDoor": "REAR_LEFT",
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "UNKNOWN"
+      },
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "CLOSED",
+        "vehicleDoor": "UNSPECIFIED_FRONT",
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "PASSENGER"
+      },
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "CLOSED",
+        "vehicleDoor": "REAR_RIGHT",
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "UNKNOWN"
+      },
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "CLOSED",
+        "vehicleDoor": "TAILGATE",
+        "vehicleOccupantRole": "PASSENGER"
+      },
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "CLOSED",
+        "vehicleDoor": "UNSPECIFIED_FRONT",
+        "vehicleOccupantRole": "DRIVER",
+        "vehicleSide": "DRIVER"
+      },
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": "CLOSED",
+        "vehicleDoor": "INNER_TAILGATE",
+        "vehicleOccupantRole": "PASSENGER"
+      }
+    ],
+    "hoodStatus": {
+      "updateTime": "2026-11-06T04:15:41Z",
+      "value": "CLOSED"
+    },
+    "ignitionStatus": {
+      "updateTime": "2026-11-06T04:14:27Z",
+      "value": "OFF"
+    },
+    "odometer": {
+      "updateTime": "2026-11-06T04:14:27Z",
+      "value": 27612.0
+    },
+    "outsideTemperature": {
+      "updateTime": "2026-11-06T04:14:23Z",
+      "value": 18.25
+    },
+    "tirePressure": [
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": 242.0,
+        "vehicleWheel": "FRONT_LEFT",
+        "wheelPlacardFront": 268.89564
+      },
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": 239.0,
+        "vehicleWheel": "FRONT_RIGHT",
+        "wheelPlacardFront": 268.89564
+      },
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": 240.0,
+        "vehicleWheel": "REAR_LEFT",
+        "wheelPlacardRear": 268.89564
+      },
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": 239.0,
+        "vehicleWheel": "REAR_RIGHT",
+        "wheelPlacardRear": 268.89564
+      }
+    ],
+    "tirePressureStatus": [
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": "NORMAL",
+        "vehicleWheel": "FRONT_LEFT"
+      },
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": "NORMAL",
+        "vehicleWheel": "FRONT_RIGHT"
+      },
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": "NORMAL",
+        "vehicleWheel": "REAR_LEFT"
+      },
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": "NORMAL",
+        "vehicleWheel": "REAR_RIGHT"
+      }
+    ],
+    "tirePressureSystemStatus": [
+      {
+        "updateTime": "2026-11-06T04:14:24Z",
+        "value": "NORMAL_OPERATION"
+      }
+    ],
+    "windowStatus": [
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": {
+          "doubleRange": {
+            "lowerBound": 0.0,
+            "upperBound": 0.0
+          }
+        },
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "PASSENGER",
+        "vehicleWindow": "UNSPECIFIED_FRONT"
+      },
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": {
+          "doubleRange": {
+            "lowerBound": 0.0,
+            "upperBound": 0.0
+          }
+        },
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "DRIVER",
+        "vehicleWindow": "UNSPECIFIED_REAR"
+      },
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": {
+          "doubleRange": {
+            "lowerBound": 0.0,
+            "upperBound": 0.0
+          }
+        },
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "PASSENGER",
+        "vehicleWindow": "UNSPECIFIED_REAR"
+      },
+      {
+        "updateTime": "2026-11-06T04:15:41Z",
+        "value": {
+          "doubleRange": {
+            "lowerBound": 0.0,
+            "upperBound": 0.0
+          }
+        },
+        "vehicleOccupantRole": "DRIVER",
+        "vehicleSide": "DRIVER",
+        "vehicleWindow": "UNSPECIFIED_FRONT"
+      }
+    ],
+    "xevBatteryActualStateOfCharge": {
+      "updateTime": "2026-10-15T10:35:17Z",
+      "value": 70.439995
+    },
+    "xevBatteryCapacity": {
+      "updateTime": "2026-10-15T10:35:17Z",
+      "value": 91.0
+    },
+    "xevBatteryChargeDisplayStatus": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": "IN_PROGRESS",
+      "xevBatteryType": "HIGH_VOLTAGE",
+      "xevChargerPowerType": "AC"
+    },
+    "xevBatteryChargerCurrentOutput": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": 25.0
+    },
+    "xevBatteryChargerEnergyOutput": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": 7.0364052734375
+    },
+    "xevBatteryChargerVoltageOutput": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": 348.0
+    },
+    "xevBatteryEnergyRemaining": {
+      "updateTime": "2026-11-06T04:14:24Z",
+      "value": 42.6
+    },
+    "xevBatteryIoCurrent": {
+      "updateTime": "2026-10-15T10:35:17Z",
+      "value": 0.030273438
+    },
+    "xevBatteryMaximumRange": {
+      "updateTime": "2026-10-15T09:55:24Z",
+      "value": 400.9
+    },
+    "xevBatteryPerformanceStatus": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": "NORMAL"
+    },
+    "xevBatteryRange": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": 206.40001
+    },
+    "xevBatteryStateOfCharge": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": 55.5
+    },
+    "xevBatteryTemperature": {
+      "updateTime": "2026-10-15T10:35:17Z",
+      "value": 21.5
+    },
+    "xevBatteryTimeToFullCharge": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": 204.0
+    },
+    "xevBatteryVoltage": {
+      "updateTime": "2026-10-15T10:35:17Z",
+      "value": 363.0
+    },
+    "xevChargeStationCommunicationStatus": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": "STATION_READY"
+    },
+    "xevChargeStationPowerType": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": "AC_BASIC"
+    },
+    "xevPlugChargerStatus": {
+      "updateTime": "2026-11-06T05:00:50Z",
+      "value": "CONNECTED"
+    },
+    "xevTractionMotorCurrent": {
+      "updateTime": "2026-10-15T10:35:17Z",
+      "value": 0.0
+    },
+    "xevTractionMotorVoltage": {
+      "updateTime": "2026-10-15T10:35:17Z",
+      "value": 1.0
+    }
+  }
+}

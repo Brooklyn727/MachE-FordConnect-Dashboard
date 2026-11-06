@@ -1,0 +1,79 @@
+MACH-E GT DASHBOARD — v1.3.0
+Update your existing Synology dashboard. No new Ford login or stack required.
+
+This release was validated against the real Ford response supplied in this chat.
+It was not connected directly to your live Ford account from this workspace.
+The odometer's native-km conversion was confirmed against your instrument display.
+
+INSTALL
+1. Unzip Mach-E-GT-v1.3.0.zip on your PC.
+2. In Synology File Station, open docker / mache-telemetry
+   (/volume1/docker/mache-telemetry).
+3. Back up the current server.py and web folder to a dated backup folder.
+   Back up data/history.db while the existing container is stopped if you want
+   a consistent database backup. Do not delete your existing data folder.
+4. Copy the new server.py over the existing server.py.
+5. Open the web folder in this ZIP. Copy ALL SEVEN files into your NAS web folder:
+     app.js
+     index.html
+     style.css
+     mache-gt.png
+     icon-192.png
+     icon-512.png
+     manifest.webmanifest
+6. Restart your EXISTING mache-telemetry container in Portainer.
+   If you stopped it to back up history.db, start that same container again.
+   Keep the same stack, volume mounts, port and configuration.
+7. Open your usual dashboard: http://192.168.50.33:8765/
+8. Press Ctrl+Shift+R once. Unlock with your existing dashboard password.
+9. Click Fetch latest telemetry. The badge will show FORD RESPONDING only after
+   a successful API check. Each reading keeps Ford's own timestamp.
+
+NEVER REPLACE OR DELETE THESE DURING THIS UPDATE
+  config.json       Your existing Ford credentials and dashboard password
+  data/             Your existing tokens, raw data and history.db
+  docker-compose.yml / Portainer stack settings
+These private files are intentionally NOT included in the release ZIP.
+
+WHAT YOU SHOULD SEE WITH THE SUPPLIED RESPONSE
+- Odometer and range in miles; temperatures in Fahrenheit; tire pressure in PSI.
+- All four tire pressures, Ford TPMS status and approximately 39 PSI cold placards.
+- Separate HV pack voltage and 12V system readings.
+- Charging output, time-to-full at the Ford reading time, charger type and station.
+- Door, lock, window, hood, alarm and ignition readings that Ford actually supplied.
+- Clear older-reading labels on HV temperature, voltage and capacity.
+- 7/30/90/365-day history selector and a readings CSV download.
+- Glacier Grey Mach-E GT illustration and phone/browser icons.
+
+INTENTIONALLY NOT DISPLAYED
+- Battery-health percentage: not present in your response. Capacity is not health.
+- Target charge level: not present in your response.
+- Charger energy/cost/session totals: the energy field lacks a unit, and its
+  counter/reset behavior has not been verified. No bill or session total is guessed.
+- Empty trip-efficiency chart: Ford did not supply usable trip distance/energy.
+  The existing chart, trip storage, history and CSV are retained, and appear when
+  supported data exists. Your older stored efficiency data is kept.
+
+Open "Data availability & reading times" for the exact reasons behind hidden
+readings. A field can appear later if Ford starts supplying usable data.
+There are no new speculative API endpoints or vehicle-control commands.
+
+OLD HISTORY AND EXPORTS
+The original database tables remain unchanged. Existing battery and efficiency
+history stays available. New normalized history starts after this update's first
+successful poll. Readings CSV exports use that normalized history, so old raw
+mile/km ambiguity cannot silently contaminate an export. Old trip rows remain
+available through the separate Trip CSV when trip data exists.
+Longer views do not invent past records that were never collected.
+
+ROLL BACK
+1. Stop the existing container.
+2. Restore the backed-up server.py and web folder.
+3. Start the same container and hard-refresh the browser.
+The old database tables were not changed; the older server can ignore the new
+normalized_history table. Keep your current data folder and credentials.
+
+FOR FUTURE BUILDS
+README.md, FEATURES.md, CHANGELOG.md, docs/, tests/, .gitignore and the Git bundle
+are the maintainable source/handoff. They do not need to be copied to the NAS
+for this update. Do not add private config.json or data/ to a public repository.
