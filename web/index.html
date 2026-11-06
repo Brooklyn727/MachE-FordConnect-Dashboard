@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c1117"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mach-E GT">
+<title>Mach-E GT | Telemetry</title>
+<link rel="icon" href="/web/icon-192.png?v=1.3.0"><link rel="apple-touch-icon" href="/web/icon-192.png?v=1.3.0">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/web/style.css?v=1.3.0">
+</head><body>
+<header class="top"><div class="brand"><img class="car-mark" src="/web/mache-gt.png" width="138" height="80" alt="Glacier Grey Mach-E GT"><div><strong>MACH-E <span>GT</span></strong><small>THEARK / TELEMETRY CONSOLE</small></div></div><div class="right"><span class="online" id="connection">CHECKING FORD</span><a class="logout" href="/logout">LOCK</a></div></header>
+<main>
+<div class="intro"><div><div class="eyebrow">VEHICLE INTELLIGENCE · 2025 MUSTANG MACH-E</div><h1>Electric, in detail<span>.</span></h1><p>Your Glacier Grey GT. Real Ford readings, with their real reading times.</p></div><div class="updated">DASHBOARD LAST CHECKED FORD<strong id="updated">Checking saved readings…</strong><span id="vehicle-updated"></span></div></div>
+<div id="alerts" class="alerts" role="status" aria-live="polite" hidden></div>
+<div id="no-data" class="panel empty-state" hidden>No Ford readings are saved yet. Connect Ford below, then fetch telemetry.</div>
+<div class="hero" id="hero" hidden>
+  <section class="battery" id="soc-tile" hidden><div class="panel-title">HIGH-VOLTAGE BATTERY <span>FORD READING</span></div><div class="soc"><strong id="soc"></strong><span>%</span></div><div class="progress"><i id="soc-bar"></i></div><div id="soc-age" class="reading-age"></div><div class="battery-footer"><span id="charge"></span><span id="vin"></span></div></section>
+  <section class="metrics" id="metric-tiles">
+    <div class="tile" id="range-tile" hidden><label>ESTIMATED RANGE</label><div id="range"></div><small id="range-unit"></small><small class="reading-age" id="range-age"></small></div>
+    <div class="tile" id="odo-tile" hidden><label>ODOMETER</label><div id="odo"></div><small id="odo-unit"></small><small class="reading-age" id="odo-age"></small></div>
+    <div class="tile" id="capacity-tile" hidden><label>REPORTED BATTERY CAPACITY</label><div id="capacity"></div><small id="capacity-unit"></small><small class="reading-age" id="capacity-age"></small></div>
+    <div class="tile" id="health-tile" hidden><label>REPORTED BATTERY HEALTH</label><div id="health"></div><small>No health estimate from capacity</small><small class="reading-age" id="health-age"></small></div>
+  </section>
+</div>
+<div class="vehicle-overview">
+<section class="panel tires-panel" id="tires-panel" hidden>
+  <div class="panel-title">TIRE PRESSURE <span>PSI · FOUR CORNERS</span></div>
+  <p class="chart-subtitle" id="tire-system"></p>
+  <div class="tire-layout">
+    <div class="tire-car" aria-hidden="true"><span>FRONT ↑</span><div class="car-outline"><i></i><b>GT</b></div></div>
+    <div class="tire-card fl" id="tire-FRONT_LEFT" hidden></div><div class="tire-card fr" id="tire-FRONT_RIGHT" hidden></div>
+    <div class="tire-card rl" id="tire-REAR_LEFT" hidden></div><div class="tire-card rr" id="tire-REAR_RIGHT" hidden></div>
+  </div>
+  <p class="graph-note" id="tire-note"></p>
+</section>
+<section class="panel" id="vehicle-panel" hidden>
+  <div class="panel-title">VEHICLE STATUS <span>LAST REPORTED</span></div>
+  <div id="vehicle-summary" class="status-list"></div>
+  <details class="status-details"><summary>Individual doors & windows</summary><div id="vehicle-details" class="status-list"></div></details>
+  <p class="graph-note">Statuses describe the saved Ford readings. Some lock readings are inferred by Ford; reading age is shown below each value.</p>
+</section>
+</div>
+<section class="panel environment" id="environment-panel" hidden>
+  <div class="panel-title">ENVIRONMENT & CHARGING <span>°F · V</span></div><div class="environment-grid" id="environment-grid"></div>
+</section>
+<section class="panel environment" id="charging-panel" hidden>
+  <div class="panel-title">CHARGING DETAILS <span>CHARGER OUTPUT</span></div><div class="environment-grid" id="charging-grid"></div>
+  <p class="graph-note">Output power is calculated from matching charger voltage and current readings. It is not a wall-meter or billing measurement. Time to full is Ford’s estimate at the reading time.</p>
+</section>
+<section class="panel environment" id="aux-panel" hidden>
+  <div class="panel-title">12V BATTERY <span>AUXILIARY SYSTEM</span></div><div class="environment-grid" id="aux-grid"></div>
+  <p class="graph-note">Ford’s primary/12V battery readings are kept separate from the high-voltage traction battery.</p>
+</section>
+<div class="history-controls"><div><div class="eyebrow">YOUR HISTORY</div><p>Saved locally on your NAS · miles / °F / PSI / mi/kWh</p></div><div class="history-actions"><label for="history-days">View</label><select id="history-days"><option value="7">7 days</option><option value="30">30 days</option><option value="90">90 days</option><option value="365">1 year</option></select><a id="export-history" class="secondary-button" href="/api/export.csv?days=7">Download readings CSV</a><a id="export-efficiency" class="raw-link" href="/api/efficiency.csv?days=7" hidden>Trip CSV</a></div></div>
+<div class="trends" id="trends">
+  <section class="panel graph chart-panel" id="battery-panel"><div class="panel-title">BATTERY LEVEL <span id="history-label">LAST 7 DAYS</span></div><p class="chart-subtitle">State of charge · Ford telemetry history</p><canvas id="battery-chart" role="img" aria-label="Battery percentage history"></canvas><div class="graph-note" id="battery-note">History fills as real Ford readings are saved.</div></section>
+  <section class="panel graph chart-panel" id="efficiency-panel" hidden><div class="panel-title">EFFICIENCY BY DAY <span>MI / KWH</span></div><p class="chart-subtitle">Electric miles per kilowatt-hour · actual Ford trip data</p><canvas id="efficiency-chart" role="img" aria-label="Electric driving efficiency by day"></canvas><div class="graph-note" id="efficiency-note"></div></section>
+</div>
+<details class="panel support" id="support"><summary>Data availability & reading times <span id="support-count"></span></summary><p class="muted">Only usable readings appear above. This check describes the latest Ford response, not a promise that every reading is always available. Readings over an hour old are marked as older; a fresh dashboard check does not refresh the vehicle’s timestamp.</p><p class="muted">Ford sometimes leaves units out. Native defaults are labeled wherever used. Compare the converted odometer with the car’s instrument display before relying on an unlabeled distance.</p><div id="support-report" class="support-report"></div><a href="/api/capabilities" class="raw-link">Download data-support report</a></details>
+<section class="panel setup"><div class="panel-title">FORD API CONNECTION <span>AUTHORIZATION / DIAGNOSTICS</span></div>
+<div class="diag" id="diag" role="status">Checking your existing Ford connection…</div><div class="controls"><form action="/poll" method="POST" id="poll-form"><input type="hidden" name="csrf" value="__CSRF__"><button class="secondary-button" type="submit" id="poll-button">Fetch latest telemetry</button></form><a href="/api/raw" target="_blank" rel="noreferrer" class="raw-link">View raw data (private) ↗</a></div>
+<details class="authorization" id="authorization"><summary>Ford authorization settings</summary>
+<div class="setup-grid"><div><p><b>1.</b> Register the exact callback URI below with your Ford Developer application. For the manual callback method, your browser may show a blank/error page after Ford consent. Copy its full address-bar URL.</p><div class="code">__REDIRECT__</div><p><b>2.</b> Open Ford’s official consent screen and sign in with your regular Ford app account.</p><a class="primary" href="/start" target="_blank" rel="noreferrer">Start Ford authorization</a></div><div><p><b>3.</b> Paste the full callback URL into this private form. It contains a one-time authorization code.</p><form action="/manual" method="POST"><input name="csrf" type="hidden" value="__CSRF__"><textarea name="callback_url" placeholder="http://localhost:8080/callback?code=...&state=..." rows="3" required></textarea><button class="secondary-button" type="submit">Exchange code for token</button></form><p class="muted">Your existing authorization and stored history survive this update.</p></div></div></details>
+</section>
+<footer>Mach-E GT console · <span id="version">v1.3.0</span> · Private on your Synology NAS.<br>Independent project, not affiliated with Ford. Vehicle data is read-only. No sample readings are displayed.</footer>
+</main><script src="/web/app.js?v=1.3.0"></script>
+</body></html>
